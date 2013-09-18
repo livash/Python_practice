@@ -52,7 +52,7 @@ def contains_sequence(dna1, dna2):
 def is_valid_sequence(str):
     '''(str) -> bool
     
-    Checks whether a str contains only 'A', 'T', 'G' ot 'C'.
+    Returns True or False basen after cheking whether a str contains only 'A', 'T', 'G' ot 'C'.
     
     >>> is_valid_sequence("AATG")
     True
@@ -71,7 +71,7 @@ def is_valid_sequence(str):
 def insert_sequence(str1, str2, idx):
     '''(str, str, int) -> str
 
-    Insert str2 into str1 at posiiton idx.
+    Returns a string where str2 is inserted into str1 at posiiton idx.
     
     >>> insert_sequence('CCGG', 'AT', 2)
     'CCATGG'
@@ -104,7 +104,9 @@ def get_complement(str):
 
 def get_complementary_sequence(str):
     ''' (str) -> str
-
+    
+    Returns complementary DNA sequence to a given sequence
+    
     >>> get_complementary_sequence('AAA')
     TTT
     >>> get_complementary_sequence('aaa')
