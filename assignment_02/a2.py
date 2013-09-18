@@ -62,7 +62,7 @@ def is_valid_sequence(str):
     False
     '''
     if str == '':
-        return False
+        return True
     for char in str:
         if not (char in 'ATGC'):
             return False
