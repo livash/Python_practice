@@ -153,7 +153,11 @@ def num_words_on_board(board, words):
     >>> num_words_on_board([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], ['ANT', 'BOX', 'SOB', 'TO'])
     3
     """
-    return len(words)
+    words_on_board = 0
+    for word in words:
+        if board_contains_word(board, word):
+            words_on_board += 1
+    return words_on_board
 
 def read_words(words_file):
     """ (file open for reading) -> list of str
@@ -164,15 +168,14 @@ def read_words(words_file):
     Precondition: Each line of the file contains a word in uppercase characters
     from the standard English alphabet.
     """
-    result = []
-    file = open(words_file, 'r')
-    word = file.readline().rstrip('\n') 
-    while word != '':
-        result.append(word)
-        word = file.readline().rstrip('\n') 
+    print("..........................")
+    print(words_file)
+    file = words_file
+    content = file.read()
     file.close()
-    
-    return result        
+    words = content.split('\n')
+
+    return words        
  
 def read_board(board_file):
     """ (file open for reading) -> list of list of str
@@ -181,16 +184,16 @@ def read_board(board_file):
     one row of the board per line. Newlines are not included in the board.
     """
     board = []
-    file = open(board_file)
-    row = file.readline().rstrip('\n')
-    while row != '':
+    file = board_file
+    content = file.read()
+    file.close()
+    rows = content.split('\n')
+    for row_str in rows:
         new_row = []
-        for chr in row:
+        for chr in row_str:
             new_row.append(chr)
         board.append(new_row)
-        row = file.readline().rstrip('\n')
         
-    file.close()
     return board
         
         
